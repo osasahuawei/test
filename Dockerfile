@@ -6,8 +6,8 @@ WORKDIR /app
 COPY . ./
 
 # Restore ثم Build ثم Publish
-RUN dotnet restore "project graduation.csproj"
-RUN dotnet publish "project graduation.csproj" -c Release -o out
+RUN dotnet restore "project_graduation.csproj"
+RUN dotnet publish "project_graduation.csproj" -c Release -o out
 
 # مرحلة التشغيل
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
@@ -15,4 +15,4 @@ WORKDIR /app
 COPY --from=build /app/out .
 
 # شغّل التطبيق
-ENTRYPOINT ["dotnet", "project graduation.dll"]
+ENTRYPOINT ["dotnet", "project_graduation.dll"]
